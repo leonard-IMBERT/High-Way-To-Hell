@@ -1,6 +1,6 @@
 const Weapons = require('./Weapons.js')
 
-function Enemie(sprite, posX, posy) {
+function Enemy(sprite, posX, posy) {
 
   this.pos = {
     X: posX,
@@ -23,19 +23,19 @@ function Enemie(sprite, posX, posy) {
   this.weapon = Weapons.Basic(this.pos.X, this.pos.Y)
 }
 
-Enemie.prototype.is_hit(x, y) {
+Enemy.prototype.is_hit(x, y) {
   //TODO
 }
 
-Enemie.prototype.shot() {
+Enemy.prototype.shot() {
   //TODO
 }
 
-Enemie.prototype.accelerate(x,y) {
+Enemy.prototype.accelerate(x,y) {
   //TODO
 }
 
-Enemie.prototype.set_pos(x,y) {
+Enemy.prototype.set_pos(x,y) {
   //TODO
 }
 
@@ -45,7 +45,7 @@ Enemie.prototype.set_pos(x,y) {
  *  - False if the object survive to this damage
  **/
 
-Enemie.prototype.loose_health() {
+Enemy.prototype.loose_health() {
   //TODO
 }
 
@@ -53,10 +53,10 @@ Enemie.prototype.loose_health() {
  * Update the sprite, the status and update the weapon
  **/
 
-Enemie.prototype.update() {
+Enemy.prototype.update() {
   //TODO
 }
 
 module.exports = {
-  Enemie
+  Enemy
 }
