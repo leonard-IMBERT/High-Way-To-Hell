@@ -8,6 +8,16 @@ const State = {
   LEVEL_3: 0x05
 };
 
+function Key(id) {
+  this.id = id;
+}
+
+const UserInput = {
+  RIGHT_CLICK: 0x01,
+  LEFT_CLICK: 0x02,
+  KEYBOARD: function(id) { return new Key(id) }
+}
+
 /**
  * Table containig the different entities.
  * It need to be capable of saying if an Entity is in him and deleting
@@ -24,20 +34,19 @@ function EntitiesTable() {
 }
 
 /**
- * Return
- *  true if the entity is in the table
- *  false if the entity is not in the table
+ * Return the index of the first element responding to the function
+ * Undefined if the function didn't match
  **/
 
-EntitiesTable.prototype.search = function (e) {
+EntitiesTable.prototype.search = function (f) {
   //TODO
 }
 
 /**
- * Delete the given entity
+ * Delete the entity matching the function
  **/
 
-EntitiesTable.prototype.rm = function(e) {
+EntitiesTable.prototype.rm = function(f) {
   //TODO
 }
 
@@ -51,6 +60,8 @@ EntitiesTable.prototype.rm_index = function(index) {
 
 /**
  * Add an entitiy in the table
+ *
+ * Return the index of the adden entitie
  **/
 
 EntitiesTable.prototype.add = function(e) {
@@ -65,6 +76,23 @@ EntitiesTable.prototype.length = function() {
   //TODO
 }
 
+/**
+ * Delete all objects in the table
+ **/
+
+EntitiesTable.prototype.clear = function() {
+  //TODO
+}
+
+/**
+ * Get the entitity present at the given index
+ * return undefined elsewhere
+ **/
+
+EntitiesTabke.prototype.get = function(index) {
+  //TODO
+}
+
 
 /** =============================================== **/
 
@@ -73,7 +101,8 @@ EntitiesTable.prototype.length = function() {
  **/
 
 function Game(sizeX, sizeY) {
-  this.entities = [];
+  this.user_inputs = [];
+  this.entities = new EntitiesTable();
   this.state = State.NOT_READY;
   this.loader = new Loader();
   this.size = {
@@ -98,6 +127,26 @@ function Game(sizeX, sizeY) {
  **/
 
 Game.prototype.update = function() {
+  this.listen_user();
+  switch(this.state) {
+    case State.NOT_READY:
+      this.state = State.MENU
+      this.entities.clear()
+      this.entities.add(new Menu())
+      break
+    case State.MENU:
+      const menu = this.entities.get(this.entities.search(function(e) {
+        return e.prototype === Menu.prototype;
+      }));
+
+  }
+}
+
+/**
+ * Listen the user input and put it in a table
+ **/
+
+Game.prototype.listen_user = function () {
   //TODO
 }
 
