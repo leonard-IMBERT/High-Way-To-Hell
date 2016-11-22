@@ -109,6 +109,7 @@ function Game(sizeX, sizeY) {
     X: sizeX,
     Y: sizeY
   }
+  this.level_manager = undefined;
 }
 
 /**
@@ -134,11 +135,43 @@ Game.prototype.update = function() {
       this.entities.clear()
       this.entities.add(new Menu())
       break
+
     case State.MENU:
       const menu = this.entities.get(this.entities.search(function(e) {
         return e.prototype === Menu.prototype;
       }));
+      this.state = menu.update(this.user_inputs)
+      break
 
+    case State.LEVEL_1:
+      if(this.entities.get(this.entities.search(function(e) {
+        return e.prototype === Menu.prototype;
+      }))) {
+        this.entities.clear();
+        this.level_manager = new LevelManager(/*Level blueprint*/)
+      }
+      this.entities = this.level_manager.update_entities(this.entities);
+      break
+
+    case State.LEVEL_2:
+      if(this.entities.get(this.entities.search(function(e) {
+        return e.prototype === Menu.prototype;
+      }))) {
+        this.entities.clear();
+        this.level_manager = new LevelManager(/*Level blueprint*/)
+      }
+      this.entities = this.level_manager.update_entities(this.entities);
+      break
+
+    case State.LEVEL_3:
+      if(this.entities.get(this.entities.search(function(e) {
+        return e.prototype === Menu.prototype;
+      }))) {
+        this.entities.clear();
+        this.level_manager = new LevelManager(/*Level blueprint*/)
+      }
+      this.entities = this.level_manager.update_entities(this.entities);
+      break
   }
 }
 
