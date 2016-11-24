@@ -28,15 +28,18 @@ Projectile.prototype.setSprite = function(byteArray) {
  **/
 
 Projectile.prototype.update = function() {
-  //TODO
+  RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"black");
+  this.weapon.update(this.pos.X,this.pos.Y);
 }
 
 Projectile.prototype.accelerate = function(x,y) {
-  //TODO
+  this.mov.X = this.move.X + x;
+  this.mov.Y = this.move.Y + y;
 }
 
 Projectile.prototype.set_pos = function(x,y) {
-  //TODO
+  this.pos.X = x;
+  this.pos.Y =y;
 }
 
 module.exports = {

@@ -1,6 +1,8 @@
 const Weapons = require('./Weapons.js')
 
-function Enemy(sprite, posX, posy) {
+function Enemy(sprite, posX, posy, life) {
+
+  this.life = life;
 
   this.pos = {
     X: posX,
@@ -48,7 +50,10 @@ Enemy.prototype.set_pos = function(x,y) {
  **/
 
 Enemy.prototype.loose_health = function() {
-  //TODO
+  this.life --
+
+  if (this.life > 0) return false
+  else return true
 }
 
 /**
@@ -56,7 +61,8 @@ Enemy.prototype.loose_health = function() {
  **/
 
 Enemy.prototype.update = function() {
-  //TODO
+  RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"red");
+  this.weapon.update(this.pos.X,this.pos.Y);
 }
 
 module.exports = {

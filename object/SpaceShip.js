@@ -50,7 +50,7 @@ SpaceShip.prototype.set_pos = function(x,y) {
  **/
 
 SpaceShip.prototype.loose_health = function() {
-  //TODO
+  return true
 }
 
 /**
@@ -58,7 +58,8 @@ SpaceShip.prototype.loose_health = function() {
  **/
 
 SpaceShip.prototype.update = function() {
-  //TODO
+  RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"blue");
+  this.weapon.update(this.pos.X,this.pos.Y);
 }
 
 module.exports = {
