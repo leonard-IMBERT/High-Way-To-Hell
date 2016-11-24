@@ -179,11 +179,20 @@ Game.prototype.update = function() {
 }
 
 /**
- * Listen the user input and put it in a table
+ * Add a user input
  **/
 
-Game.prototype.listen_user = function () {
-  //TODO
+Game.prototype.add_user_input = function(input) {
+  this.user_input.push(input)
+}
+
+/**
+ * Del a user input
+ **/
+
+Game.prototype.del_user_input = function(input) {
+  const index = this.user_inputs.findIndex(function(key) { return key.id == input.id })
+  if(index >= 0) this.user_inputs.splice(index, 1)
 }
 
 /**
