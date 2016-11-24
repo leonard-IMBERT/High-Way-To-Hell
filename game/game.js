@@ -153,7 +153,7 @@ Game.prototype.update = function() {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
       }
-      this.entities = this.level_manager.update_entities(this.entities);
+      this.entities = this.level_manager.update_entities(this.entities, this.size);
       break
 
     case State.LEVEL_2:
@@ -163,7 +163,7 @@ Game.prototype.update = function() {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
       }
-      this.entities = this.level_manager.update_entities(this.entities);
+      this.entities = this.level_manager.update_entities(this.entities, this.size);
       break
 
     case State.LEVEL_3:
@@ -173,7 +173,7 @@ Game.prototype.update = function() {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
       }
-      this.entities = this.level_manager.update_entities(this.entities);
+      this.entities = this.level_manager.update_entities(this.entities, this.size);
       break
   }
 }
