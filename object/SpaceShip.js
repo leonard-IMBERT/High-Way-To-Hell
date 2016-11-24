@@ -25,19 +25,19 @@ function SpaceShip(sprite) {
   this.weapon = Weapons.Basic(this.pos.X, this.pos.Y)
 }
 
-SpaceShip.prototype.is_hit(x, y) {
+SpaceShip.prototype.is_hit = function(x, y) {
   //TODO
 }
 
-SpaceShip.prototype.shot() {
+SpaceShip.prototype.shot = function() {
   //TODO
 }
 
-SpaceShip.prototype.accelerate(x,y) {
+SpaceShip.prototype.accelerate = function(x,y) {
   //TODO
 }
 
-SpaceShip.prototype.set_pos(x,y) {
+SpaceShip.prototype.set_pos = function(x,y) {
   //TODO
 }
 
@@ -47,7 +47,7 @@ SpaceShip.prototype.set_pos(x,y) {
  *  - False if the object survive to this damage
  **/
 
-SpaceShip.prototype.loose_health() {
+SpaceShip.prototype.loose_health = function() {
   //TODO
 }
 
@@ -55,7 +55,7 @@ SpaceShip.prototype.loose_health() {
  * Update the sprite, the status and update the weapon
  **/
 
-SpaceShip.prototype.update() {
+SpaceShip.prototype.update = function() {
   //TODO
 }
 

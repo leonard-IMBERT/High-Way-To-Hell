@@ -23,19 +23,19 @@ function Enemy(sprite, posX, posy) {
   this.weapon = Weapons.Basic(this.pos.X, this.pos.Y)
 }
 
-Enemy.prototype.is_hit(x, y) {
+Enemy.prototype.is_hit = function(x, y) {
   //TODO
 }
 
-Enemy.prototype.shot() {
+Enemy.prototype.shot = function() {
   //TODO
 }
 
-Enemy.prototype.accelerate(x,y) {
+Enemy.prototype.accelerate = function(x,y) {
   //TODO
 }
 
-Enemy.prototype.set_pos(x,y) {
+Enemy.prototype.set_pos = function(x,y) {
   //TODO
 }
 
@@ -45,7 +45,7 @@ Enemy.prototype.set_pos(x,y) {
  *  - False if the object survive to this damage
  **/
 
-Enemy.prototype.loose_health() {
+Enemy.prototype.loose_health = function() {
   //TODO
 }
 
@@ -53,7 +53,7 @@ Enemy.prototype.loose_health() {
  * Update the sprite, the status and update the weapon
  **/
 
-Enemy.prototype.update() {
+Enemy.prototype.update = function() {
   //TODO
 }
 

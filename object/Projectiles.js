@@ -19,23 +19,23 @@ function Projectile(posX, posY, sizeX, sizeY, movX, movY, damage) {
   this.sprite = undefined
 }
 
-Projectile.prototype.setSprite(byteArray) {
-  this.sprite = sprite
+Projectile.prototype.setSprite = function(byteArray) {
+  this.sprite = byteArray
 }
 
 /**
  * Update the sprites
  **/
 
-Projectile.prototype.update() {
+Projectile.prototype.update = function() {
   //TODO
 }
 
-Projectile.prototype.accelerate(x,y) {
+Projectile.prototype.accelerate = function(x,y) {
   //TODO
 }
 
-Projectile.prototype.set_pos(x,y) {
+Projectile.prototype.set_pos = function(x,y) {
   //TODO
 }
 
