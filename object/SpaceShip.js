@@ -50,7 +50,7 @@ SpaceShip.prototype.set_pos = function(x,y) {
  **/
 
 SpaceShip.prototype.loose_health = function() {
-  //TODO
+  return true
 }
 
 /**
