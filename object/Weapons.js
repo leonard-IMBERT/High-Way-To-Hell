@@ -51,10 +51,10 @@ function BasicShot() {
   const projectile = new Projectile(
     this.pos.X,
     this.pos.Y,
-    10,
-    10,
-    -1,
+    8,
+    8,
     0,
+    -1,
     1
   )
 
