@@ -31,7 +31,7 @@ Weapon.prototype.update = function(posX, posY) {
 Weapon.prototype.fire = function() {
   if(this.currentCooldown <= 0) {
     this.currentCooldown = this.cooldown
-    this.shot()
+    return this.shot()
   }
 }
 

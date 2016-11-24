@@ -28,7 +28,7 @@ Enemy.prototype.is_hit = function(x, y) {
 }
 
 Enemy.prototype.shot = function() {
-  //TODO
+  return this.weapon.fire()
 }
 
 Enemy.prototype.accelerate = function(x,y) {

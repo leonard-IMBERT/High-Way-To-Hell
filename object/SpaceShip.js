@@ -30,7 +30,7 @@ SpaceShip.prototype.is_hit = function(x, y) {
 }
 
 SpaceShip.prototype.shot = function() {
-  //TODO
+  return this.weapon.fire()
 }
 
 SpaceShip.prototype.accelerate = function(x,y) {
