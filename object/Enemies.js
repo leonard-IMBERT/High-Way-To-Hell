@@ -32,11 +32,13 @@ Enemy.prototype.shot = function() {
 }
 
 Enemy.prototype.accelerate = function(x,y) {
-  //TODO
+  this.mov.X = this.move.X + x;
+  this.mov.Y = this.move.Y + y;
 }
 
 Enemy.prototype.set_pos = function(x,y) {
-  //TODO
+  this.pos.X = x;
+  this.pos.Y =y;
 }
 
 /**

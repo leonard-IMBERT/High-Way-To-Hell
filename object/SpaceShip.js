@@ -34,11 +34,13 @@ SpaceShip.prototype.shot = function() {
 }
 
 SpaceShip.prototype.accelerate = function(x,y) {
-  //TODO
+  this.mov.X = this.move.X + x;
+  this.mov.Y = this.move.Y + y;
 }
 
 SpaceShip.prototype.set_pos = function(x,y) {
-  //TODO
+  this.pos.X = x;
+  this.pos.Y =y;
 }
 
 /**
