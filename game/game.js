@@ -39,7 +39,9 @@ function EntitiesTable() {
  **/
 
 EntitiesTable.prototype.search = function (f) {
-  //TODO
+  var res = this.table.findIndex(f)
+  if(res >= 0) return res
+  else return undefined
 }
 
 /**
@@ -47,7 +49,8 @@ EntitiesTable.prototype.search = function (f) {
  **/
 
 EntitiesTable.prototype.rm = function(f) {
-  //TODO
+  var obj = this.search(f)
+  if(obj) this.table.splice(obj, 1)
 }
 
 /**
@@ -55,7 +58,7 @@ EntitiesTable.prototype.rm = function(f) {
  **/
 
 EntitiesTable.prototype.rm_index = function(index) {
-  //TODO
+  this.table.splice(index, 1)
 }
 
 /**
@@ -65,7 +68,7 @@ EntitiesTable.prototype.rm_index = function(index) {
  **/
 
 EntitiesTable.prototype.add = function(e) {
-  //TODO
+  return this.table.push(e) - 1
 }
 
 /**
@@ -73,7 +76,7 @@ EntitiesTable.prototype.add = function(e) {
  **/
 
 EntitiesTable.prototype.length = function() {
-  //TODO
+  return this.table.length
 }
 
 /**
@@ -81,7 +84,7 @@ EntitiesTable.prototype.length = function() {
  **/
 
 EntitiesTable.prototype.clear = function() {
-  //TODO
+  this.table = [];
 }
 
 /**
@@ -89,8 +92,8 @@ EntitiesTable.prototype.clear = function() {
  * return undefined elsewhere
  **/
 
-EntitiesTabke.prototype.get = function(index) {
-  //TODO
+EntitiesTable.prototype.get = function(index) {
+  return this.table[index]
 }
 
 
