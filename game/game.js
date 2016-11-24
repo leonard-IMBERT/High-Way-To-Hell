@@ -200,5 +200,7 @@ Game.prototype.del_user_input = function(input) {
  **/
 
 Game.prototype.draw = function() {
-  //TODO
+  for (var ii = 0; ii < this.entities.length; ii ++){
+    this.entities.get(ii).draw();
+  }
 }

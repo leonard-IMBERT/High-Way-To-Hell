@@ -15,5 +15,7 @@ Menu.prototype.update = function(user_input) {
  **/
 
 Menu.prototype.draw = function() {
-  //TODO
+  setCanvasFont("Times_New_Roman", "90pt", "bold");
+  Texte( 200, 200, "Press Enter", "black");
+  Texte( 350, 350, "To Play", "black");
 }
