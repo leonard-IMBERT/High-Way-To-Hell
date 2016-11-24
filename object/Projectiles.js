@@ -33,11 +33,13 @@ Projectile.prototype.update = function() {
 }
 
 Projectile.prototype.accelerate = function(x,y) {
-  //TODO
+  this.mov.X = this.move.X + x;
+  this.mov.Y = this.move.Y + y;
 }
 
 Projectile.prototype.set_pos = function(x,y) {
-  //TODO
+  this.pos.X = x;
+  this.pos.Y =y;
 }
 
 module.exports = {
