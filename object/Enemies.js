@@ -24,7 +24,7 @@ function Enemy(sprite, posX, posy) {
 }
 
 Enemy.prototype.is_hit = function(x, y) {
-  //TODO
+  return x > this.pos.X && x < this.pos.X + this.size.X && y > this.pos.Y && y < this.pos.Y + this.size.Y
 }
 
 Enemy.prototype.shot = function() {

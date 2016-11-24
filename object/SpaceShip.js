@@ -26,7 +26,7 @@ function SpaceShip(sprite) {
 }
 
 SpaceShip.prototype.is_hit = function(x, y) {
-  //TODO
+  return x > this.pos.X && x < this.pos.X + this.size.X && y > this.pos.Y && y < this.pos.Y + this.size.Y
 }
 
 SpaceShip.prototype.shot = function() {
