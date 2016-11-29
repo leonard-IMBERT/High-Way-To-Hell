@@ -1,6 +1,7 @@
 const Weapons = require('./Weapons.js')
 
-function Enemy(sprite, posX, posy, life) {
+function Enemy(sprite, posX, posy, life, id) {
+  this.id = id;
 
   this.life = life;
 

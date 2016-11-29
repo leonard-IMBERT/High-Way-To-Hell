@@ -60,7 +60,7 @@ function BasicShot() {
 
   projectile.setSprite(Loader.sprite.basic)
 
-  return projectile
+  return [projectile]
 }
 
 module.exports = {

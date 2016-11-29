@@ -1,4 +1,5 @@
 const Loader = require('./loader.js');
+const LevelManager = require('./LevelManager.js');
 
 const State = {
   NOT_READY: 0x01,
@@ -94,6 +95,14 @@ EntitiesTable.prototype.clear = function() {
 
 EntitiesTable.prototype.get = function(index) {
   return this.table[index]
+}
+
+/**
+ * Apply the given action to the index precised
+ **/
+
+EntitiesTabel.prototype.apply = function(index, action) {
+  action(this.table[index])
 }
 
 
@@ -200,7 +209,9 @@ Game.prototype.del_user_input = function(input) {
  **/
 
 Game.prototype.draw = function() {
-  for (var ii = 0; ii < this.entities.length; ii ++){
-    this.entities.get(ii).draw();
+  for (var ii = 0; ii < this.entities.length(); ii ++){
+    this.entities.apply(ii, function(e) {
+      e.draw();
+    });
   }
 }
