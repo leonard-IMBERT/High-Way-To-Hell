@@ -15,7 +15,9 @@ Menu.prototype.update = function(user_input) {
  **/
 
 Menu.prototype.draw = function() {
-  setCanvasFont("Times_New_Roman", "90pt", "bold");
+  setCanvasFont("Times_New_Roman", "90px", "bold");
+  RectanglePlein(150,70,710,350,"darkblue", 20);
+  RectanglePlein(160,80,690,330,"aqua", 20);
   Texte( 200, 200, "Press Enter", "black");
-  Texte( 350, 350, "To Play", "black");
+  Texte( 320, 350, "To Play", "black");
 }
