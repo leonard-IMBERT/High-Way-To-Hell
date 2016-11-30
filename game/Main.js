@@ -1,4 +1,4 @@
-const game = new Game.game();
+const game = new Game();
 
 game.initialise();
 
@@ -7,11 +7,11 @@ game.initialise();
 const body = document.getElementsByTagName("body")[0]
 
 body.addEventListener("keydown", function(e) {
-  game.add_user_input(Game.UserInput.KeyBoard(e.key))
+  game.add_user_input(UserInput.KeyBoard(e.key))
 });
 
 body.addEventListener("keyup", function(e) {
-  game.del_user_input(Game.UserInput.KeyBoard(e.key))
+  game.del_user_input(UserInput.KeyBoard(e.key))
 });
 
 function draw() {
