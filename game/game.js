@@ -137,7 +137,6 @@ function Game(sizeX, sizeY) {
  **/
 
 Game.prototype.update = function() {
-  this.listen_user();
   switch(this.state) {
     case State.NOT_READY:
       this.state = State.MENU
