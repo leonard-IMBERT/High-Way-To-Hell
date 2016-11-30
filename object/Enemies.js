@@ -7,6 +7,7 @@ function Enemy(sprite, posX, posy, life, id) {
     X: posX,
     Y: posY
   }
+
   this.mov = {
     X: 0,
     Y: 0
@@ -19,17 +20,17 @@ function Enemy(sprite, posX, posy, life, id) {
     Y: 32
   }
 
-  this.sprite = sprite
+  this.sprite = sprite;
 
-  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y)
+  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y);
 }
 
 Enemy.prototype.is_hit = function(x, y) {
-  return x > this.pos.X && x < this.pos.X + this.size.X && y > this.pos.Y && y < this.pos.Y + this.size.Y
+  return x > this.pos.X && x < this.pos.X + this.size.X && y > this.pos.Y && y < this.pos.Y + this.size.Y;
 }
 
 Enemy.prototype.shot = function() {
-  return this.weapon.fire()
+  return this.weapon.fire();
 }
 
 Enemy.prototype.accelerate = function(x,y) {
@@ -49,7 +50,7 @@ Enemy.prototype.set_pos = function(x,y) {
  **/
 
 Enemy.prototype.loose_health = function() {
-  this.life --
+  this.life --;
 
   if (this.life > 0) return false
   else return true

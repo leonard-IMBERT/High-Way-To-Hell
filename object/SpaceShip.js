@@ -18,17 +18,17 @@ function SpaceShip(sprite) {
     Y: 32
   }
 
-  this.sprite = sprite
+  this.sprite = sprite;
 
-  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y)
+  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y);
 }
 
 SpaceShip.prototype.is_hit = function(x, y) {
-  return x > this.pos.X && x < this.pos.X + this.size.X && y > this.pos.Y && y < this.pos.Y + this.size.Y
+  return x > this.pos.X && x < this.pos.X + this.size.X && y > this.pos.Y && y < this.pos.Y + this.size.Y;
 }
 
 SpaceShip.prototype.shot = function() {
-  return this.weapon.fire()
+  return this.weapon.fire();
 }
 
 SpaceShip.prototype.accelerate = function(x,y) {
@@ -48,7 +48,7 @@ SpaceShip.prototype.set_pos = function(x,y) {
  **/
 
 SpaceShip.prototype.loose_health = function() {
-  return true
+  return true;
 }
 
 /**

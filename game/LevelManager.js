@@ -77,7 +77,7 @@ LevelManager.prototype.update_entities = function(entities, size) {
     const ent_copy = entities.get(zz);
 
     entities.apply(zz, function(ent) {
-      ent.set_pos(ent.pos.X + ent_copy.mov.X, ent_copy.ent.pos.Y + mov.Y)
+      ent.set_pos(ent.pos.X + ent_copy.mov.X, ent_copy.ent.pos.Y + mov.Y);
     })
 
     const moved_ent_copy = entities.get(zz);
@@ -93,12 +93,12 @@ LevelManager.prototype.update_entities = function(entities, size) {
         if(ent_copy.pos.Y > size.Y) ent_copy.pos.Y = size.Y - ent_copy.size.Y;
         if(ent_copy.pos.Y + ent_copy.size.Y < 0) ent_copy.pos.Y = size.Y + ent_copy.size.Y;
       } else {
-        toDelete.push(zz)
+        toDelete.push(zz);
       }
     }
 
     toDelete.forEach(function (index) {
-      entities.rm_index(index)
+      entities.rm_index(index);
     });
 
     return entities;

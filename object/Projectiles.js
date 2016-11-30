@@ -2,25 +2,25 @@ function Projectile(posX, posY, sizeX, sizeY, movX, movY, damage) {
   this.pos = {
     X: posX,
     Y: posY
-  }
+  };
 
   this.size = {
     X: sizeX,
     Y: sizeY
-  }
+  };
 
   this.mov = {
     X: movX,
     Y: movY
-  }
+  };
 
-  this.damage = damage
+  this.damage = damage;
 
-  this.sprite = undefined
+  this.sprite = undefined;
 }
 
 Projectile.prototype.setSprite = function(byteArray) {
-  this.sprite = byteArray
+  this.sprite = byteArray;
 }
 
 /**
