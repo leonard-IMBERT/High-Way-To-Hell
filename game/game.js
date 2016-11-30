@@ -188,7 +188,7 @@ Game.prototype.update = function() {
  **/
 
 Game.prototype.add_user_input = function(input) {
-  this.user_input.push(input)
+  this.user_inputs.push(input)
 }
 
 /**
