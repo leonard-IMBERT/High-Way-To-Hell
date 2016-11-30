@@ -1,6 +1,3 @@
-const Projectile = require('./Projectiles.js')
-const Loader = require('../game/Loader.js')
-
 function Weapon(shot, posX, posY, cooldown) {
 
   this.shot = shot

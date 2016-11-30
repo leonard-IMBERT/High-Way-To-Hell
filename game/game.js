@@ -1,6 +1,3 @@
-const Loader = require('./loader.js');
-const LevelManager = require('./LevelManager.js');
-
 const State = {
   NOT_READY: 0x01,
   MENU: 0x02,

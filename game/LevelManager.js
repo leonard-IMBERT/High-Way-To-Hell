@@ -1,4 +1,3 @@
-const Enemy = require('../object/Enemies.js');
 /**
  * The code of the different action you can do
  **/

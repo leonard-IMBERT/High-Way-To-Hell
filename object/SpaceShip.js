@@ -1,5 +1,3 @@
-const Weapons = require('./Weapons.js')
-
 const limitAcc = //TODO
 
 function SpaceShip(sprite) {
