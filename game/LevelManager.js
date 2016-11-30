@@ -93,8 +93,9 @@ LevelManager.prototype.update_entities = function(entities, size) {
         if(ent_copy.pos.X + ent_copy.size.X < 0) ent_copy.pos.X = size.X + ent_copy.size.X;
         if(ent_copy.pos.Y > size.Y) ent_copy.pos.Y = size.Y - ent_copy.size.Y;
         if(ent_copy.pos.Y + ent_copy.size.Y < 0) ent_copy.pos.Y = size.Y + ent_copy.size.Y;
+      } else {
+        toDelete.push(zz)
       }
-      if(ent_copy.prototype != Spaceship.prototype) toDelete.push(zz)
     }
 
     toDelete.forEach(function (index) {
