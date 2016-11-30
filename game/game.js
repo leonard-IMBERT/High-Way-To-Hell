@@ -208,7 +208,7 @@ Game.prototype.del_user_input = function(input) {
 Game.prototype.draw = function() {
   for (var ii = 0; ii < this.entities.length(); ii ++){
     this.entities.apply(ii, function(e) {
-      e.draw();
+      e.update();
     });
   }
 }
