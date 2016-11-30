@@ -87,7 +87,7 @@ LevelManager.prototype.update_entities = function(entities, size) {
     if(ent_copy.pos.X > size.X || ent_copy.pos.X + ent_copy.size.X < 0
       || ent_copy.pos.Y > size.Y || ent_copy.pos.Y + ent_copy.size.Y < 0) {
 
-      if(ent_copy.prototype == Spaceship.prototype) {
+      if(ent_copy.constructor === Spaceship) {
         if(ent_copy.pos.X > size.X) ent_copy.pos.X = size.X - ent_copy.size.X;
         if(ent_copy.pos.X + ent_copy.size.X < 0) ent_copy.pos.X = size.X + ent_copy.size.X;
         if(ent_copy.pos.Y > size.Y) ent_copy.pos.Y = size.Y - ent_copy.size.Y;

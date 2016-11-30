@@ -146,14 +146,14 @@ Game.prototype.update = function() {
 
     case State.MENU:
       const menu = this.entities.get(this.entities.search(function(e) {
-        return e.prototype === Menu.prototype;
+        return e.constructor === Menu;
       }));
       this.state = menu.update(this.user_inputs)
       break
 
     case State.LEVEL_1:
       if(this.entities.get(this.entities.search(function(e) {
-        return e.prototype === Menu.prototype;
+        return e.constructor === Menu;
       }))) {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
@@ -163,7 +163,7 @@ Game.prototype.update = function() {
 
     case State.LEVEL_2:
       if(this.entities.get(this.entities.search(function(e) {
-        return e.prototype === Menu.prototype;
+        return e.constructor === Menu;
       }))) {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
@@ -173,7 +173,7 @@ Game.prototype.update = function() {
 
     case State.LEVEL_3:
       if(this.entities.get(this.entities.search(function(e) {
-        return e.prototype === Menu.prototype;
+        return e.constructor === Menu;
       }))) {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
