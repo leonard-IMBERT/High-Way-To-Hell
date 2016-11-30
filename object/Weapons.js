@@ -136,4 +136,7 @@ function TripleShot() {
 
 Weapons = {
   Basic: function(posX, posY) { return new Weapon(BasicShot, posX, posY, 20); }
+  Big: function(posX, posY) { return new Weapon(BigShot, posX, posY, 30);
+  Double: function(posX, posY) { return new Weapon(DoubleShot, posX, posY, 25); }
+  Triple: function(posX, posY) { return new Weapon(TripleShot, posX, posY, 25); }
 }
