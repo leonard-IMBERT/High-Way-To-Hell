@@ -50,10 +50,14 @@ LevelManager.prototype.update_entities = function(entities, size) {
 
         const id = entities.search(function (x){ return actions[ii].id == x.id })
 
-        if(id) entities.get(id).accelerate(actions[ii].acc.accX, actions[ii].acc.accY)
+        if(id) entities.apply(id, function(e) {
+          e.accelerate(actions[ii].acc.accX, actions[ii].acc.accY)
+        }
 
-        if(id && actions[ii].fire) entities.get(id).shot().forEach(function (proj) {
-          entities.add(proj)
+        if(id && actions[ii].fire) entities.apply(id, function(e) {
+          e.shot().forEach(function (proj) {
+            entities.add(proj)
+          })
         })
         break;
       case Actions.CREATE:
