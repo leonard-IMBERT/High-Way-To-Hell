@@ -1,3 +1,3 @@
 #!/bin/bash
-cat ./object/* ./game/* > compile.js
-sed 's/const/var/' compile.js > compile.js
+cat ./game/* ./object/* | sed 's/const/var/' > ./compile.js
+echo 'Done'
