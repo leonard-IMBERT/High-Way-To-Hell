@@ -55,8 +55,6 @@ function BasicShot() {
     1
   )
 
-  projectile.setSprite(Loader.sprite.basic)
-
   return [projectile]
 }
 
@@ -71,8 +69,6 @@ function BigShot() {
     -1,
     1
   )
-
-  projectile.setSprite(Loader.sprite.big)
 
   return [projectile]
 }
@@ -98,9 +94,6 @@ function DoubleShot() {
     -1,
     1
   )
-
-  projectile1.setSprite(Loader.sprite.basic)
-  projectile2.setSprite(Loader.sprite.basic)
 
   return [projectile1,projectile2]
 }
@@ -136,10 +129,6 @@ function TripleShot() {
     -1,
     1
   )
-
-  projectile1.setSprite(Loader.sprite.basic)
-  projectile2.setSprite(Loader.sprite.basic)
-  projectile3.setSprite(Loader.sprite.basic)
 
   return [projectile1,projectile2,projectile3]
 }
