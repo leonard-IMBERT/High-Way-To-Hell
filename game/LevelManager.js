@@ -51,7 +51,7 @@ LevelManager.prototype.update_entities = function(entities, size) {
 
         if(id) entities.apply(id, function(e) {
           e.accelerate(actions[ii].acc.accX, actions[ii].acc.accY)
-        }
+        })
 
         if(id && actions[ii].fire) entities.apply(id, function(e) {
           e.shot().forEach(function (proj) {
