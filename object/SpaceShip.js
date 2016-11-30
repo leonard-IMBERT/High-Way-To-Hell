@@ -1,4 +1,4 @@
-const limitAcc = //TODO
+const limitAcc = 100
 
 function SpaceShip(sprite) {
 
