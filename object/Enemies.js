@@ -60,6 +60,7 @@ Enemy.prototype.loose_health = function() {
  **/
 
 Enemy.prototype.update = function() {
+  //TODO replace later by a sprite
   RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"red");
   this.weapon.update(this.pos.X,this.pos.Y);
 }
