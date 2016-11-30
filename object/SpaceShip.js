@@ -59,7 +59,3 @@ SpaceShip.prototype.update = function() {
   RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"blue");
   this.weapon.update(this.pos.X,this.pos.Y);
 }
-
-module.exports = {
-  SpaceShip
-}

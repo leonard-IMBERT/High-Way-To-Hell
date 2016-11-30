@@ -60,6 +60,6 @@ function BasicShot() {
   return [projectile]
 }
 
-module.exports = {
+Weapons = {
   Basic: (posX, posY) => new Weapon(BasicShot, posX, posY, 20)
 }

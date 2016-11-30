@@ -41,7 +41,3 @@ Projectile.prototype.set_pos = function(x,y) {
   this.pos.X = x;
   this.pos.Y =y;
 }
-
-module.exports = {
-  Projectile
-}
