@@ -98,7 +98,7 @@ EntitiesTable.prototype.get = function(index) {
  * Apply the given action to the index precised
  **/
 
-EntitiesTabel.prototype.apply = function(index, action) {
+EntitiesTable.prototype.apply = function(index, action) {
   action(this.table[index])
 }
 
