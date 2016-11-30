@@ -56,6 +56,7 @@ SpaceShip.prototype.loose_health = function() {
  **/
 
 SpaceShip.prototype.update = function() {
+  //TODO replace later by a sprite
   RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"blue");
   this.weapon.update(this.pos.X,this.pos.Y);
 }
