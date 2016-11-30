@@ -1,7 +1,5 @@
 function Menu() {}
 
-State
-
 /**
  * Return if the new state of the game
  **/
