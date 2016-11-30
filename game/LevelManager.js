@@ -86,9 +86,14 @@ LevelManager.prototype.update_entities = function(entities, size) {
     //Here the codition verify that if no pixel of the hitbox appear on the screen
     //add the id to the toDelete table
     if(ent_copy.pos.X > size.X || ent_copy.pos.X + ent_copy.size.X < 0
-      || ent_copy.posY > size.Y || ent_copy.pos.Y + ent_copy.size.Y < 0) {
+      || ent_copy.pos.Y > size.Y || ent_copy.pos.Y + ent_copy.size.Y < 0) {
 
-      //TODO if the entity is the spaceship, replace it
+      if(ent_copy.prototype == Spaceship.prototype) {
+        if(ent_copy.pos.X > size.X) ent_copy.pos.X = size.X - ent_copy.size.X;
+        if(ent_copy.pos.X + ent_copy.size.X < 0) ent_copy.pos.X = size.X + ent_copy.size.X;
+        if(ent_copy.pos.Y > size.Y) ent_copy.pos.Y = size.Y - ent_copy.size.Y;
+        if(ent_copy.pos.Y + ent_copy.size.Y < 0) ent_copy.pos.Y = size.Y + ent_copy.size.Y;
+      }
       if(ent_copy.prototype != Spaceship.prototype) toDelete.push(zz)
     }
 
