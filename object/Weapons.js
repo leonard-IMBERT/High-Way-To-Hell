@@ -60,6 +60,91 @@ function BasicShot() {
   return [projectile]
 }
 
+function BigShot() {
+
+  const projectile = new Projectile(
+    this.pos.X,
+    this.pos.Y,
+    32,
+    32,
+    0,
+    -1,
+    1
+  )
+
+  projectile.setSprite(Loader.sprite.big)
+
+  return [projectile]
+}
+
+function DoubleShot() {
+
+  const projectile1 = new Projectile(
+    this.pos.X - 16,
+    this.pos.Y,
+    8,
+    8,
+    0,
+    -1,
+    1
+  )
+
+  const projectile2 = new Projectile(
+    this.pos.X + 16,
+    this.pos.Y,
+    8,
+    8,
+    0,
+    -1,
+    1
+  )
+
+  projectile1.setSprite(Loader.sprite.basic)
+  projectile2.setSprite(Loader.sprite.basic)
+
+  return [projectile1,projectile2]
+}
+
+function TripleShot() {
+
+  const projectile1 = new Projectile(
+    this.pos.X - 16,
+    this.pos.Y,
+    8,
+    8,
+    -1,
+    -1,
+    1
+  )
+
+  const projectile2 = new Projectile(
+    this.pos.X + 16,
+    this.pos.Y,
+    8,
+    8,
+    1,
+    -1,
+    1
+  )
+
+  const projectile3 = new Projectile(
+    this.pos.X,
+    this.pos.Y,
+    8,
+    8,
+    0,
+    -1,
+    1
+  )
+
+  projectile1.setSprite(Loader.sprite.basic)
+  projectile2.setSprite(Loader.sprite.basic)
+  projectile3.setSprite(Loader.sprite.basic)
+
+  return [projectile1,projectile2,projectile3]
+}
+
+
 Weapons = {
   Basic: (posX, posY) => new Weapon(BasicShot, posX, posY, 20)
 }
