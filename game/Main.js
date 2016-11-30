@@ -7,7 +7,7 @@ game.initialise();
 const body = document.getElementsByTagName("body")[0]
 
 body.addEventListener("keydown", function(e) {
-  game.add_user_input(UserInput.KEYBOARd(e.key))
+  game.add_user_input(UserInput.KEYBOARD(e.key))
 });
 
 body.addEventListener("keyup", function(e) {
