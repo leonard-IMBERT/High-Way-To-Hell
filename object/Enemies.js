@@ -71,5 +71,5 @@ const Enemies = {
   ThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Basic(posX, posY)); },
   BigEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Big(posX, posY)); },
   ShooterEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 2, id, Weapons.Double(posX, posY)); },
-  BigThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 7, id, Weapons.Double(posX, posY)); },
+  BigThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 7, id, Weapons.Double(posX, posY)); }
 };
