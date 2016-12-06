@@ -14,7 +14,6 @@ const Actions = {
    * CREATE: create an entitie
    * { id: int, type: EnemieType }
    **/
-  //TODO: Make a list of enemy type in Enemeies.js
 
   CREATE: 0x02,
 
