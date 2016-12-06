@@ -40,7 +40,7 @@ function LevelManager(blueprint) {
   this.actions = this.extract_actions(blueprint);
 };
 
-LevelManager.prototype.update_entities = function(entities, size) {
+LevelManager.prototype.update_entities = function(user_input, entities, size) {
   var actions = this.actions.pop();
   if(actions) {
   for(var ii = 0; ii < actions.length; ii++) {
@@ -78,7 +78,7 @@ LevelManager.prototype.update_entities = function(entities, size) {
     const ent_copy = entities.get(zz);
 
     entities.apply(zz, function(ent) {
-      ent.set_pos(ent.pos.X + ent_copy.mov.X, ent_copy.ent.pos.Y + mov.Y);
+      ent.set_pos(ent.pos.X + ent.mov.X, ent.pos.Y + ent.mov.Y);
     })
 
     const moved_ent_copy = entities.get(zz);
@@ -102,6 +102,21 @@ LevelManager.prototype.update_entities = function(entities, size) {
       entities.rm_index(index);
     });
 
+  const index_spaceship = entities.search(function(e) { return e.constructor === SpaceShip })
+    if(index_spaceship !== undefined) {
+      if(user_input.find(function(input) { return input.id === "ArrowUp" })) entities.apply(index_spaceship, function(e) {
+        e.accelerate(0, -1)
+      })
+      if(user_input.find(function(input) { return input.id === "ArrowDown" })) entities.apply(index_spaceship, function(e) {
+        e.accelerate(0, 1)
+      })
+      if(user_input.find(function(input) { return input.id === "ArrowLeft" })) entities.apply(index_spaceship, function(e) {
+        e.accelerate(-1, 0)
+      })
+      if(user_input.find(function(input) { return input.id === "ArrowRight" })) entities.apply(index_spaceship, function(e) {
+        e.accelerate(1, 0)
+      })
+    }
   };
   return entities;
 };

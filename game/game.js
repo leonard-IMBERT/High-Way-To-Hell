@@ -154,31 +154,32 @@ Game.prototype.update = function() {
     case State.LEVEL_1:
       if(this.entities.get(this.entities.search(function(e) {
         return e.constructor === Menu;
-      }))); {
+      }))) {
         this.entities.clear();
         this.level_manager = new LevelManager(level_1)
+        this.entities.add(new SpaceShip([]))
       };
-      this.entities = this.level_manager.update_entities(this.entities, this.size);
+      this.entities = this.level_manager.update_entities(this.user_inputs, this.entities, this.size);
       break
 
     case State.LEVEL_2:
       if(this.entities.get(this.entities.search(function(e) {
         return e.constructor === Menu;
-      }))); {
+      }))) {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
       };
-      this.entities = this.level_manager.update_entities(this.entities, this.size);
+      this.entities = this.level_manager.update_entities(this.user_inputs, this.entities, this.size);
       break
 
     case State.LEVEL_3:
       if(this.entities.get(this.entities.search(function(e) {
         return e.constructor === Menu;
-      }))); {
+      }))) {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
       };
-      this.entities = this.level_manager.update_entities(this.entities, this.size);
+      this.entities = this.level_manager.update_entities(this.user_inputs, this.entities, this.size);
       break
   };
 };

@@ -32,8 +32,8 @@ SpaceShip.prototype.shot = function() {
 };
 
 SpaceShip.prototype.accelerate = function(x,y) {
-  this.mov.X = this.move.X + x;
-  this.mov.Y = this.move.Y + y;
+  this.mov.X = this.mov.X + x;
+  this.mov.Y = this.mov.Y + y;
 };
 
 SpaceShip.prototype.set_pos = function(x,y) {
