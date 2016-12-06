@@ -75,7 +75,6 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
   var toDelete = [];
 
   for(var zz = 0; zz < entities.length(); zz++) {
-    const ent_copy = entities.get(zz);
 
     entities.apply(zz, function(ent) {
       ent.set_pos(ent.pos.X + ent.mov.X, ent.pos.Y + ent.mov.Y);
@@ -85,15 +84,17 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
 
     //Here the codition verify that if no pixel of the hitbox appear on the screen
     //add the id to the toDelete table
-    if(ent_copy.pos.X > size.X || ent_copy.pos.X + ent_copy.size.X < 0
-      || ent_copy.pos.Y > size.Y || ent_copy.pos.Y + ent_copy.size.Y < 0) {
-
-      if(ent_copy.constructor === Spaceship) {
-        if(ent_copy.pos.X > size.X) ent_copy.pos.X = size.X - ent_copy.size.X;
-        if(ent_copy.pos.X + ent_copy.size.X < 0) ent_copy.pos.X = size.X + ent_copy.size.X;
-        if(ent_copy.pos.Y > size.Y) ent_copy.pos.Y = size.Y - ent_copy.size.Y;
-        if(ent_copy.pos.Y + ent_copy.size.Y < 0) ent_copy.pos.Y = size.Y + ent_copy.size.Y;
-      } else {
+    
+    //TODO: Bug with the Arena
+    if(moved_ent_copy.constructor === SpaceShip) {
+      
+      if(moved_ent_copy.pos.X + moved_ent_copy.size.X > size.X) entities.apply(zz, function(ent) { ent.set_pos(size.X - moved_ent_copy.size.X, ent.pos.Y)})
+      if(moved_ent_copy.pos.X < 0) entities.apply(zz, function(ent) { ent.set_pos(0, ent.pos.Y) })
+      if(moved_ent_copy.pos.Y + moved_ent_copy.size.Y > size.Y) entities.apply(zz, function(ent) { ent.set_pos(ent.pos.X, size.Y - moved_ent_copy.size.Y)})
+      if(moved_ent_copy.pos.Y < 0) entities.apply(zz, function(ent) { ent.set_pos(ent.pos.X, 0) })
+    } else {
+      if(moved_ent_copy.pos.X > size.X || moved_ent_copy.pos.X + moved_ent_copy.size.X < 0
+      || moved_ent_copy.pos.Y > size.Y || moved_ent_copy.pos.Y + moved_ent_copy.size.Y < 0) {
         toDelete.push(zz);
       };
     };
