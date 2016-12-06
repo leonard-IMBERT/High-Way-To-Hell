@@ -156,7 +156,7 @@ Game.prototype.update = function() {
         return e.constructor === Menu;
       }))); {
         this.entities.clear();
-        this.level_manager = new LevelManager(/*Level blueprint*/)
+        this.level_manager = new LevelManager(level_1)
       };
       this.entities = this.level_manager.update_entities(this.entities, this.size);
       break

@@ -42,6 +42,7 @@ function LevelManager(blueprint) {
 
 LevelManager.prototype.update_entities = function(entities, size) {
   var actions = this.actions.pop();
+  if(actions) {
   for(var ii = 0; ii < actions.length; ii++) {
     switch(actions[ii].action) {
       case Actions.MOV:
@@ -67,6 +68,7 @@ LevelManager.prototype.update_entities = function(entities, size) {
     };
 
   };
+  };
 
   //TODO: add colision resolve
 
@@ -77,7 +79,7 @@ LevelManager.prototype.update_entities = function(entities, size) {
 
     entities.apply(zz, function(ent) {
       ent.set_pos(ent.pos.X + ent_copy.mov.X, ent_copy.ent.pos.Y + mov.Y);
-    };)
+    })
 
     const moved_ent_copy = entities.get(zz);
 
@@ -100,10 +102,10 @@ LevelManager.prototype.update_entities = function(entities, size) {
       entities.rm_index(index);
     });
 
-    return entities;
   };
+  return entities;
 };
 
 LevelManager.prototype.extract_actions = function(blueprint) {
-  //TODO
+  return blueprint.reverse()
 };
