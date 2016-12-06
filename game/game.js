@@ -148,7 +148,7 @@ Game.prototype.update = function() {
       const menu = this.entities.get(this.entities.search(function(e) {
         return e.constructor === Menu;
       }));
-      this.state = menu.update(this.user_inputs)
+      this.state = menu.process(this.user_inputs)
       break
 
     case State.LEVEL_1:

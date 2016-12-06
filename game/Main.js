@@ -1,7 +1,5 @@
 const game = new Game();
 
-game.initialise();
-
 
 //User listener
 const body = document.getElementsByTagName("body")[0]
