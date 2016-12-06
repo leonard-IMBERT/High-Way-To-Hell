@@ -16,6 +16,6 @@ function draw() {
   Initialiser();
   game.update();
   game.draw();
-}
+};
 
 Loop(-1);

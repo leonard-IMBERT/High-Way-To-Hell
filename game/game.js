@@ -8,13 +8,13 @@ const State = {
 
 function Key(id) {
   this.id = id;
-}
+};
 
 const UserInput = {
   RIGHT_CLICK: 0x01,
   LEFT_CLICK: 0x02,
   KEYBOARD: function(id) { return new Key(id) }
-}
+};
 
 /**
  * Table containig the different entities.
@@ -29,7 +29,7 @@ const UserInput = {
 
 function EntitiesTable() {
   this.table = [];
-}
+};
 
 /**
  * Return the index of the first element responding to the function
@@ -40,7 +40,7 @@ EntitiesTable.prototype.search = function (f) {
   var res = this.table.findIndex(f)
   if(res >= 0) return res
   else return undefined
-}
+};
 
 /**
  * Delete the entity matching the function
@@ -49,7 +49,7 @@ EntitiesTable.prototype.search = function (f) {
 EntitiesTable.prototype.rm = function(f) {
   var obj = this.search(f)
   if(obj) this.table.splice(obj, 1)
-}
+};
 
 /**
  * Delete the given index
@@ -57,7 +57,7 @@ EntitiesTable.prototype.rm = function(f) {
 
 EntitiesTable.prototype.rm_index = function(index) {
   this.table.splice(index, 1)
-}
+};
 
 /**
  * Add an entitiy in the table
@@ -67,7 +67,7 @@ EntitiesTable.prototype.rm_index = function(index) {
 
 EntitiesTable.prototype.add = function(e) {
   return this.table.push(e) - 1
-}
+};
 
 /**
  * Get the size of the table
@@ -75,7 +75,7 @@ EntitiesTable.prototype.add = function(e) {
 
 EntitiesTable.prototype.length = function() {
   return this.table.length
-}
+};
 
 /**
  * Delete all objects in the table
@@ -83,7 +83,7 @@ EntitiesTable.prototype.length = function() {
 
 EntitiesTable.prototype.clear = function() {
   this.table = [];
-}
+};
 
 /**
  * Get the entitity present at the given index
@@ -92,7 +92,7 @@ EntitiesTable.prototype.clear = function() {
 
 EntitiesTable.prototype.get = function(index) {
   return this.table[index]
-}
+};
 
 /**
  * Apply the given action to the index precised
@@ -100,7 +100,7 @@ EntitiesTable.prototype.get = function(index) {
 
 EntitiesTable.prototype.apply = function(index, action) {
   action(this.table[index])
-}
+};
 
 
 /** =============================================== **/
@@ -117,9 +117,9 @@ function Game(sizeX, sizeY) {
   this.size = {
     X: sizeX,
     Y: sizeY
-  }
+  };
   this.level_manager = undefined;
-}
+};
 
 /**
  * Update the game in this order
@@ -154,34 +154,34 @@ Game.prototype.update = function() {
     case State.LEVEL_1:
       if(this.entities.get(this.entities.search(function(e) {
         return e.constructor === Menu;
-      }))) {
+      }))); {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
-      }
+      };
       this.entities = this.level_manager.update_entities(this.entities, this.size);
       break
 
     case State.LEVEL_2:
       if(this.entities.get(this.entities.search(function(e) {
         return e.constructor === Menu;
-      }))) {
+      }))); {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
-      }
+      };
       this.entities = this.level_manager.update_entities(this.entities, this.size);
       break
 
     case State.LEVEL_3:
       if(this.entities.get(this.entities.search(function(e) {
         return e.constructor === Menu;
-      }))) {
+      }))); {
         this.entities.clear();
         this.level_manager = new LevelManager(/*Level blueprint*/)
-      }
+      };
       this.entities = this.level_manager.update_entities(this.entities, this.size);
       break
-  }
-}
+  };
+};
 
 /**
  * Add a user input
@@ -189,7 +189,7 @@ Game.prototype.update = function() {
 
 Game.prototype.add_user_input = function(input) {
   this.user_inputs.push(input)
-}
+};
 
 /**
  * Del a user input
@@ -198,7 +198,7 @@ Game.prototype.add_user_input = function(input) {
 Game.prototype.del_user_input = function(input) {
   const index = this.user_inputs.findIndex(function(key) { return key.id == input.id })
   if(index >= 0) this.user_inputs.splice(index, 1)
-}
+};
 
 /**
  * Draw each entities on the screen
@@ -209,5 +209,5 @@ Game.prototype.draw = function() {
     this.entities.apply(ii, function(e) {
       e.update();
     });
-  }
-}
+  };
+};

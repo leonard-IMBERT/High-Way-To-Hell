@@ -5,7 +5,7 @@ function Weapon(shot, posX, posY, cooldown) {
   this.pos = {
     X: posX,
     Y: posY
-  }
+  };
 
   /**
    * Cooldown in frame
@@ -13,7 +13,7 @@ function Weapon(shot, posX, posY, cooldown) {
 
   this.cooldown = cooldown;
   this.currentCooldown = 0;
-}
+};
 
 /**
  * Update the cooldown and the position
@@ -23,14 +23,14 @@ Weapon.prototype.update = function(posX, posY) {
   if(this.currentCooldown > 0) this.curentCooldown --
   this.pos.X = posX;
   this.pos.Y = posY;
-}
+};
 
 Weapon.prototype.fire = function() {
   if(this.currentCooldown <= 0) {
     this.currentCooldown = this.cooldown;
     return this.shot();
-  }
-}
+  };
+};
 
 function BasicShot() {
   /**
@@ -56,7 +56,7 @@ function BasicShot() {
   )
 
   return [projectile];
-}
+};
 
 function BigShot() {
 
@@ -71,7 +71,7 @@ function BigShot() {
   )
 
   return [projectile];
-}
+};
 
 function DoubleShot() {
 
@@ -96,7 +96,7 @@ function DoubleShot() {
   )
 
   return [projectile1,projectile2];
-}
+};
 
 function TripleShot() {
 
@@ -131,7 +131,7 @@ function TripleShot() {
   )
 
   return [projectile1,projectile2,projectile3];
-}
+};
 
 
 var Weapons = {
@@ -139,4 +139,4 @@ var Weapons = {
   Big: function(posX, posY) { return new Weapon(BigShot, posX, posY, 30); },
   Double: function(posX, posY) { return new Weapon(DoubleShot, posX, posY, 25); },
   Triple: function(posX, posY) { return new Weapon(TripleShot, posX, posY, 25); }
-}
+};

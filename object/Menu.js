@@ -1,4 +1,4 @@
-function Menu() {}
+function Menu() {};
 
 /**
  * Return if the new state of the game
@@ -7,7 +7,7 @@ function Menu() {}
 Menu.prototype.process = function(user_input) {
   if(user_input.find(function(input) { return input.id == 'Enter' })) return State.LEVEL_1
   else return State.MENU
-}
+};
 
 /**
  * Draw the menu on the screen
@@ -19,4 +19,4 @@ Menu.prototype.update = function() {
   RectanglePlein(160,80,690,330,"aqua", 20);
   Texte( 200, 200, "Press Enter", "black");
   Texte( 320, 350, "To Play", "black");
-}
+};
