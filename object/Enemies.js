@@ -1,4 +1,4 @@
-function Enemy(sprite, posX, posy, life, id) {
+function Enemy(sprite, posX, posY, life, id, weapon) {
   this.id = id;
 
   this.life = life;
@@ -22,7 +22,7 @@ function Enemy(sprite, posX, posy, life, id) {
 
   this.sprite = sprite;
 
-  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y);
+  this.weapon = weapon;
 }
 
 Enemy.prototype.is_hit = function(x, y) {
@@ -64,4 +64,12 @@ Enemy.prototype.update = function() {
   //TODO replace later by a sprite
   RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"red");
   this.weapon.update(this.pos.X,this.pos.Y);
+}
+
+const Enemies = {
+  BasicEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 1, id, Weapons.Basic(posX, posY)); },
+  ThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Basic(posX, posY)); },
+  BigEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Big(posX, posY)); },
+  ShooterEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 2, id, Weapons.Double(posX, posY)); },
+  BigThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 7, id, Weapons.Double(posX, posY)); },
 }
