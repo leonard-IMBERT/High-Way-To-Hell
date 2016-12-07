@@ -1,4 +1,4 @@
-const limitAcc = 100
+const limitAcc = 10
 
 function SpaceShip(sprite) {
 
@@ -32,8 +32,10 @@ SpaceShip.prototype.shot = function() {
 };
 
 SpaceShip.prototype.accelerate = function(x,y) {
-  this.mov.X = this.mov.X + x;
-  this.mov.Y = this.mov.Y + y;
+  if(this.mov.X + x > limitAcc) this.mov.X = limitAcc
+  else this.mov.X = this.mov.X + x;
+  if(this.mov.Y + y > limitAcc) this.mov.Y = limitAcc
+  else this.mov.Y = this.mov.Y + y;
 };
 
 SpaceShip.prototype.set_pos = function(x,y) {

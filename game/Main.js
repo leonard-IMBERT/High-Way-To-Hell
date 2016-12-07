@@ -1,4 +1,4 @@
-const game = new Game();
+const game = new Game(100, 200);
 
 
 //User listener
