@@ -76,6 +76,22 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
 
   for(var zz = 0; zz < entities.length(); zz++) {
 
+  const index_spaceship = entities.search(function(e) { return e.constructor === SpaceShip })
+    if(index_spaceship !== undefined) {
+      if(user_input.find(function(input) { return input.id === "ArrowUp" })) entities.apply(index_spaceship, function(e) {
+        e.accelerate(0, -1)
+      })
+      if(user_input.find(function(input) { return input.id === "ArrowDown" })) entities.apply(index_spaceship, function(e) {
+        e.accelerate(0, 1)
+      })
+      if(user_input.find(function(input) { return input.id === "ArrowLeft" })) entities.apply(index_spaceship, function(e) {
+        e.accelerate(-1, 0)
+      })
+      if(user_input.find(function(input) { return input.id === "ArrowRight" })) entities.apply(index_spaceship, function(e) {
+        e.accelerate(1, 0)
+      })
+    }
+
     entities.apply(zz, function(ent) {
       ent.set_pos(ent.pos.X + ent.mov.X, ent.pos.Y + ent.mov.Y);
     })
@@ -102,22 +118,6 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
     toDelete.forEach(function (index) {
       entities.rm_index(index);
     });
-
-  const index_spaceship = entities.search(function(e) { return e.constructor === SpaceShip })
-    if(index_spaceship !== undefined) {
-      if(user_input.find(function(input) { return input.id === "ArrowUp" })) entities.apply(index_spaceship, function(e) {
-        e.accelerate(0, -1)
-      })
-      if(user_input.find(function(input) { return input.id === "ArrowDown" })) entities.apply(index_spaceship, function(e) {
-        e.accelerate(0, 1)
-      })
-      if(user_input.find(function(input) { return input.id === "ArrowLeft" })) entities.apply(index_spaceship, function(e) {
-        e.accelerate(-1, 0)
-      })
-      if(user_input.find(function(input) { return input.id === "ArrowRight" })) entities.apply(index_spaceship, function(e) {
-        e.accelerate(1, 0)
-      })
-    }
   };
   return entities;
 };
