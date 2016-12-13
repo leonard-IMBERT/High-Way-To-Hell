@@ -84,10 +84,10 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
 
     //Here the codition verify that if no pixel of the hitbox appear on the screen
     //add the id to the toDelete table
-    
+
     //TODO: Bug with the Arena
     if(moved_ent_copy.constructor === SpaceShip) {
-      
+
       if(moved_ent_copy.pos.X + moved_ent_copy.size.X > size.X) entities.apply(zz, function(ent) { ent.set_pos(size.X - moved_ent_copy.size.X, ent.pos.Y)})
       if(moved_ent_copy.pos.X < 0) entities.apply(zz, function(ent) { ent.set_pos(0, ent.pos.Y) })
       if(moved_ent_copy.pos.Y + moved_ent_copy.size.Y > size.Y) entities.apply(zz, function(ent) { ent.set_pos(ent.pos.X, size.Y - moved_ent_copy.size.Y)})
