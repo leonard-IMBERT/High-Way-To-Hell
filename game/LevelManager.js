@@ -104,10 +104,10 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
     //TODO: Bug with the Arena
     if(moved_ent_copy.constructor === SpaceShip) {
 
-      if(moved_ent_copy.pos.X + moved_ent_copy.size.X > size.X) entities.apply(zz, function(ent) { ent.set_pos(size.X - moved_ent_copy.size.X, ent.pos.Y)})
-      if(moved_ent_copy.pos.X < 0) entities.apply(zz, function(ent) { ent.set_pos(0, ent.pos.Y) })
-      if(moved_ent_copy.pos.Y + moved_ent_copy.size.Y > size.Y) entities.apply(zz, function(ent) { ent.set_pos(ent.pos.X, size.Y - moved_ent_copy.size.Y)})
-      if(moved_ent_copy.pos.Y < 0) entities.apply(zz, function(ent) { ent.set_pos(ent.pos.X, 0) })
+      if(moved_ent_copy.pos.X + moved_ent_copy.size.X > size.X) entities.apply(zz, function(ent) { ent.set_pos(size.X - moved_ent_copy.size.X, ent.pos.Y); ent.stop() })
+      if(moved_ent_copy.pos.X < 0) entities.apply(zz, function(ent) { ent.set_pos(0, ent.pos.Y); ent.stop() })
+      if(moved_ent_copy.pos.Y + moved_ent_copy.size.Y > size.Y) entities.apply(zz, function(ent) { ent.set_pos(ent.pos.X, size.Y - moved_ent_copy.size.Y); ent.stop() })
+      if(moved_ent_copy.pos.Y < 0) entities.apply(zz, function(ent) { ent.set_pos(ent.pos.X, 0); ent.stop() })
     } else {
       if(moved_ent_copy.pos.X > size.X || moved_ent_copy.pos.X + moved_ent_copy.size.X < 0
       || moved_ent_copy.pos.Y > size.Y || moved_ent_copy.pos.Y + moved_ent_copy.size.Y < 0) {

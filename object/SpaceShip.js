@@ -33,14 +33,21 @@ SpaceShip.prototype.shot = function() {
 
 SpaceShip.prototype.accelerate = function(x,y) {
   if(this.mov.X + x > limitAcc) this.mov.X = limitAcc
+  else if(this.mov.X + x < -limitAcc) this.mov.X = -limitAcc
   else this.mov.X = this.mov.X + x;
   if(this.mov.Y + y > limitAcc) this.mov.Y = limitAcc
+  else if(this.mov.Y + y < -limitAcc) this.mov.Y = -limitAcc
   else this.mov.Y = this.mov.Y + y;
 };
 
 SpaceShip.prototype.set_pos = function(x,y) {
   this.pos.X = x;
   this.pos.Y =y;
+};
+
+SpaceShip.prototype.stop = function() {
+  this.mov.X = 0
+  this.mov.Y = 0
 };
 
 /**
