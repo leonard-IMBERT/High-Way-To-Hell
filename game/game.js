@@ -189,7 +189,10 @@ Game.prototype.update = function() {
  **/
 
 Game.prototype.add_user_input = function(input) {
-  this.user_inputs.push(input)
+  const index = this.user_inputs.findIndex(function(key) { return key.id == input.id })
+  if(index === -1) {
+    this.user_inputs.push(input)
+  }
 };
 
 /**
