@@ -34,8 +34,8 @@ Enemy.prototype.shot = function() {
 };
 
 Enemy.prototype.accelerate = function(x,y) {
-  this.mov.X = this.move.X + x;
-  this.mov.Y = this.move.Y + y;
+  this.mov.X = this.mov.X + x;
+  this.mov.Y = this.mov.Y + y;
 };
 
 Enemy.prototype.set_pos = function(x,y) {
@@ -67,9 +67,9 @@ Enemy.prototype.update = function() {
 };
 
 const Enemies = {
-  BasicEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 1, id, Weapons.Basic(posX, posY)); },
-  ThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Basic(posX, posY)); },
-  BigEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Big(posX, posY)); },
-  ShooterEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 2, id, Weapons.Double(posX, posY)); },
-  BigThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 7, id, Weapons.Double(posX, posY)); }
+  BasicEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 1, id, Weapons.Basic(posX, posY, Side.ENNEMY)); },
+  ThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Basic(posX, posY, Side.ENNEMY)); },
+  BigEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Big(posX, posY, Side.ENNEMY)); },
+  ShooterEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 2, id, Weapons.Double(posX, posY, Side.ENNEMY)); },
+  BigThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 7, id, Weapons.Double(posX, posY, Side.ENNEMY)); }
 };

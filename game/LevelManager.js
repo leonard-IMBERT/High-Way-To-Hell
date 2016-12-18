@@ -38,32 +38,34 @@ function LevelManager(blueprint) {
    **/
 
   this.actions = this.extract_actions(blueprint);
+  this.time = 0;
 };
 
 LevelManager.prototype.update_entities = function(user_input, entities, size) {
-  var actions = this.actions.pop();
+  this.time ++;
+  var actions = this.actions["" + this.time];
   if(actions) {
   for(var ii = 0; ii < actions.length; ii++) {
     switch(actions[ii].action) {
-      case Actions.MOV:
+      case Actions.ACC:
 
-        const id = entities.search(function (x){ return actions[ii].id == x.id })
+        const id = entities.search(function (x){ return actions[ii].obj.id === x.id })
 
-        if(id) entities.apply(id, function(e) {
-          e.accelerate(actions[ii].acc.accX, actions[ii].acc.accY)
+        if(id !== undefined) entities.apply(id, function(e) {
+          e.accelerate(actions[ii].obj.acc.accX, actions[ii].obj.acc.accY)
         })
 
-        if(id && actions[ii].fire) entities.apply(id, function(e) {
+        if(id !== undefined && actions[ii].obj.fire) entities.apply(id, function(e) {
           e.shot().forEach(function (proj) {
             entities.add(proj)
           })
         })
         break;
       case Actions.CREATE:
-        //TODO
+        entities.add(actions[ii].obj.type(10, 10, actions[ii].obj.id))
         break;
       case Actions.DESTROY:
-        //TODO
+        entities.rm(function(en) { return en.id === actions[ii].obj.id })
         break;
     };
 
@@ -123,5 +125,7 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
 };
 
 LevelManager.prototype.extract_actions = function(blueprint) {
-  return blueprint.reverse()
+  //Make this actions just in case in the future we need to extract the actions
+  //from a different filetype
+  return blueprint
 };

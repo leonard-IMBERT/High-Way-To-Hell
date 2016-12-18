@@ -1,4 +1,4 @@
-const limitAcc = 10
+const limitAcc = 5
 
 function SpaceShip(sprite) {
 
@@ -20,7 +20,7 @@ function SpaceShip(sprite) {
 
   this.sprite = sprite;
 
-  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y);
+  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y, Side.ALLY);
 };
 
 SpaceShip.prototype.is_hit = function(x, y) {

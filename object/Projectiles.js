@@ -30,7 +30,6 @@ Projectile.prototype.setSprite = function(byteArray) {
 Projectile.prototype.update = function() {
   //TODO replace later by a sprite
   RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"black");
-  this.weapon.update(this.pos.X,this.pos.Y);
 };
 
 Projectile.prototype.accelerate = function(x,y) {

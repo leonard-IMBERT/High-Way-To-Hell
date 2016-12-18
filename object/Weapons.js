@@ -1,4 +1,11 @@
-function Weapon(shot, posX, posY, cooldown) {
+const Side = {
+  ALLY: 0x00,
+  ENNEMY: 0x01
+}
+
+function Weapon(shot, posX, posY, cooldown, side) {
+
+  this.side = side
 
   this.shot = shot;
 
@@ -28,11 +35,11 @@ Weapon.prototype.update = function(posX, posY) {
 Weapon.prototype.fire = function() {
   if(this.currentCooldown <= 0) {
     this.currentCooldown = this.cooldown;
-    return this.shot();
+    return this.shot(this.side);
   };
 };
 
-function BasicShot() {
+function BasicShot(side) {
   /**
    * new Projectile(
    *  posX,
@@ -44,36 +51,45 @@ function BasicShot() {
    *  damage
    * )
    **/
-
+  let movY;
+  if(side === Side.ALLY) movY = -1
+  else movY = 1
   const projectile = new Projectile(
     this.pos.X,
     this.pos.Y,
     8,
     8,
     0,
-    -1,
+    movY,
     1
   )
 
   return [projectile];
 };
 
-function BigShot() {
+function BigShot(side) {
 
+  let movY;
+  if(side === Side.ALLY) movY = -1
+  else movY = 1
   const projectile = new Projectile(
     this.pos.X,
     this.pos.Y,
     32,
     32,
     0,
-    -1,
+    movY,
     1
   )
 
   return [projectile];
 };
 
-function DoubleShot() {
+function DoubleShot(side) {
+
+  let movY;
+  if(side === Side.ALLY) movY = -1
+  else movY = 1
 
   const projectile1 = new Projectile(
     this.pos.X - 16,
@@ -81,7 +97,7 @@ function DoubleShot() {
     8,
     8,
     0,
-    -1,
+    movY,
     1
   )
 
@@ -91,14 +107,18 @@ function DoubleShot() {
     8,
     8,
     0,
-    -1,
+    movY,
     1
   )
 
   return [projectile1,projectile2];
 };
 
-function TripleShot() {
+function TripleShot(side) {
+
+  let movY;
+  if(side === Side.ALLY) movY = -1
+  else movY = 1
 
   const projectile1 = new Projectile(
     this.pos.X - 16,
@@ -106,7 +126,7 @@ function TripleShot() {
     8,
     8,
     -1,
-    -1,
+    movY,
     1
   )
 
@@ -116,7 +136,7 @@ function TripleShot() {
     8,
     8,
     1,
-    -1,
+    movY,
     1
   )
 
@@ -126,7 +146,7 @@ function TripleShot() {
     8,
     8,
     0,
-    -1,
+    movY,
     1
   )
 
@@ -135,8 +155,8 @@ function TripleShot() {
 
 
 var Weapons = {
-  Basic: function(posX, posY) { return new Weapon(BasicShot, posX, posY, 20); },
-  Big: function(posX, posY) { return new Weapon(BigShot, posX, posY, 30); },
-  Double: function(posX, posY) { return new Weapon(DoubleShot, posX, posY, 25); },
-  Triple: function(posX, posY) { return new Weapon(TripleShot, posX, posY, 25); }
+  Basic: function(side, posX, posY) { return new Weapon(BasicShot, posX, posY, 20, side); },
+  Big: function(side, posX, posY) { return new Weapon(BigShot, posX, posY, 30, side); },
+  Double: function(side, posX, posY) { return new Weapon(DoubleShot, posX, posY, 25, side); },
+  Triple: function(side, posX, posY) { return new Weapon(TripleShot, posX, posY, 25, side); }
 };
