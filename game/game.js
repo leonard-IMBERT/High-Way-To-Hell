@@ -1,4 +1,10 @@
-const State = {
+import SpaceShip from '../object/SpaceShip'
+import LevelManager from './LevelManager'
+import Loader from '../object/Loader'
+import Menu from '../object/Menu'
+import { level_1 } from '../blueprint/Level1'
+
+export const State = {
   NOT_READY: 0x01,
   MENU: 0x02,
   LEVEL_1: 0x03,
@@ -10,7 +16,7 @@ function Key(id) {
   this.id = id;
 };
 
-const UserInput = {
+export const UserInput = {
   RIGHT_CLICK: 0x01,
   LEFT_CLICK: 0x02,
   KEYBOARD: function(id) { return new Key(id) }
@@ -109,7 +115,8 @@ EntitiesTable.prototype.apply = function(index, action) {
  * The game object, it decide almost everything that happen in the game
  **/
 
-function Game(sizeX, sizeY) {
+export default function Game(sizeX, sizeY, drawer) {
+  this.drawer = drawer;
   this.user_inputs = [];
   this.entities = new EntitiesTable();
   this.state = State.NOT_READY;
@@ -209,9 +216,10 @@ Game.prototype.del_user_input = function(input) {
  **/
 
 Game.prototype.draw = function() {
+  this.drawer.clean()
   for (var ii = 0; ii < this.entities.length(); ii ++){
-    this.entities.apply(ii, function(e) {
-      e.update();
+    this.entities.apply(ii, (e) => {
+      e.update(this.drawer);
     });
   };
 };

@@ -1,0 +1,20 @@
+{
+  "name": "highway_to_hell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonard-IMBERT/High-Way-To-Hell.git"
+  },
+  "author": "Tigri <imbert418@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonard-IMBERT/High-Way-To-Hell/issues"
+  },
+  "homepage": "https://github.com/leonard-IMBERT/High-Way-To-Hell#readme"
+}

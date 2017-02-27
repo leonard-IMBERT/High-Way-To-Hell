@@ -1,6 +1,8 @@
+import { Weapons, Side } from './Weapons'
+
 const limitAcc = 5
 
-function SpaceShip(sprite) {
+export default function SpaceShip(sprite) {
 
   this.pos = {
     X: 0,
@@ -64,8 +66,8 @@ SpaceShip.prototype.loose_health = function() {
  * Update the sprite, the status and update the weapon
  **/
 
-SpaceShip.prototype.update = function() {
+SpaceShip.prototype.update = function(drawer) {
   //TODO replace later by a sprite
-  RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"blue");
+  drawer.drawRectangle(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"blue");
   this.weapon.update(this.pos.X,this.pos.Y);
 };

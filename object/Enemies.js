@@ -1,4 +1,6 @@
-function Enemy(sprite, posX, posY, life, id, weapon) {
+import { Weapons, Side } from './Weapons'
+
+export default function Enemy(sprite, posX, posY, life, id, weapon) {
   this.id = id;
 
   this.life = life;
@@ -60,13 +62,13 @@ Enemy.prototype.loose_health = function() {
  * Update the sprite, the status and update the weapon
  **/
 
-Enemy.prototype.update = function() {
+Enemy.prototype.update = function(drawer) {
   //TODO replace later by a sprite
-  RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"red");
+  drawer.drawRectangle(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"red");
   this.weapon.update(this.pos.X,this.pos.Y);
 };
 
-const Enemies = {
+export const Enemies = {
   BasicEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 1, id, Weapons.Basic(posX, posY, Side.ENNEMY)); },
   ThugEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Basic(posX, posY, Side.ENNEMY)); },
   BigEnemy: function(posX, posY, id) { return new Enemy([], posX, posY, 3, id, Weapons.Big(posX, posY, Side.ENNEMY)); },

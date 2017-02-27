@@ -1,9 +1,11 @@
-const Side = {
+import Projectile from './Projectiles'
+
+export const Side = {
   ALLY: 0x00,
   ENNEMY: 0x01
 }
 
-function Weapon(shot, posX, posY, cooldown, side) {
+export default function Weapon(shot, posX, posY, cooldown, side) {
 
   this.side = side
 
@@ -154,7 +156,7 @@ function TripleShot(side) {
 };
 
 
-var Weapons = {
+export var Weapons = {
   Basic: function(side, posX, posY) { return new Weapon(BasicShot, posX, posY, 20, side); },
   Big: function(side, posX, posY) { return new Weapon(BigShot, posX, posY, 30, side); },
   Double: function(side, posX, posY) { return new Weapon(DoubleShot, posX, posY, 25, side); },

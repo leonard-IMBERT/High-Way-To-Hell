@@ -1,4 +1,6 @@
-const level_1 = {
+import { Enemies } from '../object/Enemies'
+
+export const level_1 = {
   "30": [{ action: 0x02, obj: { id:1, type: Enemies.BasicEnemy }}],
   "180": [{ action: 0x01, obj: { id:1, acc: { accX: 1, accY: 1 }, fire: false}}],
   "360": [{ action: 0x01, obj: { id:1, acc: { accX: -1, accY: -1 }, fire: true}}],

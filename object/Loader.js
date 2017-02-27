@@ -1,3 +1,3 @@
-function Loader() {
+export default function Loader() {
   //TODO
 };

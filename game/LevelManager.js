@@ -1,3 +1,5 @@
+import SpaceShip from '../object/SpaceShip'
+
 /**
  * The code of the different action you can do
  **/
@@ -25,7 +27,7 @@ const Actions = {
   DESTROY: 0x03
 };
 
-function LevelManager(blueprint) {
+export default function LevelManager(blueprint) {
   this.blueprint = blueprint;
 
   /**
@@ -62,6 +64,7 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
         })
         break;
       case Actions.CREATE:
+        console.log(actions[ii])
         entities.add(actions[ii].obj.type(10, 10, actions[ii].obj.id))
         break;
       case Actions.DESTROY:

@@ -1,4 +1,4 @@
-function Projectile(posX, posY, sizeX, sizeY, movX, movY, damage) {
+export default function Projectile(posX, posY, sizeX, sizeY, movX, movY, damage) {
   this.pos = {
     X: posX,
     Y: posY
@@ -27,9 +27,9 @@ Projectile.prototype.setSprite = function(byteArray) {
  * Update the sprites
  **/
 
-Projectile.prototype.update = function() {
+Projectile.prototype.update = function(drawer) {
   //TODO replace later by a sprite
-  RectanglePlein(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"black");
+  drawer.drawRectangle(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"black");
 };
 
 Projectile.prototype.accelerate = function(x,y) {
