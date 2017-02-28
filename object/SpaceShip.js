@@ -2,7 +2,7 @@ import { Weapons, Side } from './Weapons'
 
 const limitAcc = 5
 
-export default function SpaceShip(sprite) {
+export default function SpaceShip() {
 
   this.pos = {
     X: 0,
@@ -19,8 +19,6 @@ export default function SpaceShip(sprite) {
     X: 32,
     Y: 32
   };
-
-  this.sprite = sprite;
 
   this.weapon = Weapons.Basic(this.pos.X, this.pos.Y, Side.ALLY);
 };
@@ -67,7 +65,8 @@ SpaceShip.prototype.loose_health = function() {
  **/
 
 SpaceShip.prototype.update = function(drawer) {
-  //TODO replace later by a sprite
-  drawer.drawRectangle(this.pos.X,this.pos.Y,this.size.X,this.size.Y,"blue");
+  if(this.mov.X > 0) drawer.drawImage(this.pos.X, this.pos.Y, this.size.X, this.size.Y, drawer.images.sprites.SpaceShip.RIGHT)
+  else if (this.mov.X < 0) drawer.drawImage(this.pos.X, this.pos.Y, this.size.X, this.size.Y, drawer.images.sprites.SpaceShip.LEFT)
+  else drawer.drawImage(this.pos.X, this.pos.Y, this.size.X, this.size.Y, drawer.images.sprites.SpaceShip.FORWARD)
   this.weapon.update(this.pos.X,this.pos.Y);
 };

@@ -4,7 +4,12 @@ import Game, { UserInput } from './Game'
 const HEIGHT = 600
 const WIDTH = 400
 
-const drawer = new Drawer(document.getElementById('drawer'))
+let loadFinished = false
+
+const drawer = new Drawer(document.getElementById('drawer'), () => {
+  console.log('Loading finished !')
+  loadFinished = true
+})
 drawer.setSize(WIDTH, HEIGHT)
 const game = new Game(WIDTH, HEIGHT, drawer);
 
@@ -21,6 +26,8 @@ body.addEventListener("keyup", function(e) {
 });
 
 window.setInterval(() => {
-  game.update()
-  game.draw()
+  if(loadFinished) {
+    game.update()
+    game.draw()
+  }
 }, 1000 / 60)

@@ -1,11 +1,15 @@
+import Images from './Images'
+
 /**
  * Drawer object used to facilite the drawing on canvas part
  * Take an HtmlElement of type canvas as parameter
  **/
-export default function Drawer(canvas) {
+export default function Drawer(canvas, onload) {
   if(canvas.tagName !== 'CANVAS') throw new Error("The giving div is Either not a canvas or not a element Html");
   this.canvas = canvas
   this.ctx = canvas.getContext('2d')
+  this.images = new Images()
+  this.images.load(onload)
 }
 
 Drawer.prototype.setSize = function(x, y) {
@@ -27,6 +31,21 @@ Drawer.prototype.drawRectangle = function(posX, posY, height, width, color) {
 Drawer.prototype.drawText = function(posX, posY, text, color) {
   if(color) this.ctx.fillStyle = color
   this.ctx.fillText(text, posX, posY)
+}
+
+Drawer.prototype.drawImage = function(posX, posY, width, height, game_image) {
+  console.log(game_image)
+  this.ctx.drawImage(
+    game_image.image,
+    game_image.posX,
+    game_image.posY,
+    game_image.width,
+    game_image.height,
+    posX,
+    posY,
+    width,
+    height
+  )
 }
 
 /**

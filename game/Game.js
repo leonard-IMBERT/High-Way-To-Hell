@@ -164,7 +164,7 @@ Game.prototype.update = function() {
       }))) {
         this.entities.clear();
         this.level_manager = new LevelManager(level_1)
-        this.entities.add(new SpaceShip([]))
+        this.entities.add(new SpaceShip())
       };
       this.entities = this.level_manager.update_entities(this.user_inputs, this.entities, this.size);
       break
