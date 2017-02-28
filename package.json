@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/leonard-IMBERT/High-Way-To-Hell/issues"
   },
-  "homepage": "https://github.com/leonard-IMBERT/High-Way-To-Hell#readme"
+  "homepage": "https://github.com/leonard-IMBERT/High-Way-To-Hell#readme",
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "pug": "^2.0.0-beta11"
+  }
 }
