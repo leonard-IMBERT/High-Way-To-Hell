@@ -34,7 +34,6 @@ Drawer.prototype.drawText = function(posX, posY, text, color) {
 }
 
 Drawer.prototype.drawImage = function(posX, posY, width, height, game_image) {
-  console.log(game_image)
   this.ctx.drawImage(
     game_image.image,
     game_image.posX,

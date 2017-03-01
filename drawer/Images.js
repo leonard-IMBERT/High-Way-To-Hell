@@ -22,7 +22,6 @@ Images.prototype.load = function(fn) {
       LEFT: new GameImage(this.images.SpaceShipSprite, 32, 0, 32, 32),
       RIGHT: new GameImage(this.images.SpaceShipSprite, 64, 0, 32, 32)
     }
-    console.log('azertyuiop')
     fn()
   }
 }
