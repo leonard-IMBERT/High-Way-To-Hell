@@ -65,8 +65,11 @@ SpaceShip.prototype.loose_health = function() {
  **/
 
 SpaceShip.prototype.update = function(drawer) {
+  drawer.drawImage(this.pos.X, this.pos.Y, this.size.X, this.size.Y, drawer.images.sprites.SpaceShip.FORWARD)
+  /*
   if(this.mov.X > 0) drawer.drawImage(this.pos.X, this.pos.Y, this.size.X, this.size.Y, drawer.images.sprites.SpaceShip.RIGHT)
   else if (this.mov.X < 0) drawer.drawImage(this.pos.X, this.pos.Y, this.size.X, this.size.Y, drawer.images.sprites.SpaceShip.LEFT)
   else drawer.drawImage(this.pos.X, this.pos.Y, this.size.X, this.size.Y, drawer.images.sprites.SpaceShip.FORWARD)
+  */
   this.weapon.update(this.pos.X,this.pos.Y);
 };
