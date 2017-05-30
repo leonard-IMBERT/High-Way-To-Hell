@@ -16,9 +16,14 @@ function Key(id) {
   this.id = id;
 };
 
+function Mouse(x, y) {
+  this.X = x
+  this.Y = y
+  this.id = "Mouse"
+}
+
 export const UserInput = {
-  RIGHT_CLICK: 0x01,
-  LEFT_CLICK: 0x02,
+  MOUSE: function(x,y) { return new Mouse(x, y) },
   KEYBOARD: function(id) { return new Key(id) }
 };
 

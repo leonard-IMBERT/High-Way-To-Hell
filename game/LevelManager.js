@@ -82,17 +82,9 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
 
   const index_spaceship = entities.search(function(e) { return e.constructor === SpaceShip })
     if(index_spaceship !== undefined) {
-      if(user_input.find(function(input) { return input.id === "ArrowUp" })) entities.apply(index_spaceship, function(e) {
-        e.accelerate(0, -1)
-      })
-      if(user_input.find(function(input) { return input.id === "ArrowDown" })) entities.apply(index_spaceship, function(e) {
-        e.accelerate(0, 1)
-      })
-      if(user_input.find(function(input) { return input.id === "ArrowLeft" })) entities.apply(index_spaceship, function(e) {
-        e.accelerate(-1, 0)
-      })
-      if(user_input.find(function(input) { return input.id === "ArrowRight" })) entities.apply(index_spaceship, function(e) {
-        e.accelerate(1, 0)
+      if(user_input.find(function(input) { return input.id === "Mouse"})) entities.apply(index_spaceship, function(e) {
+        const mouse = user_input.find(function(input) { return input.id === "Mouse"})
+        e.accelerate(mouse.X, mouse.Y)
       })
     }
 

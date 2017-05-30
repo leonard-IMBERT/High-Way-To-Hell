@@ -1,7 +1,8 @@
 import { Weapons, Side } from './Weapons'
 
-const limitAcc = 3
+const limitAcc = 6
 const dAcc = 0.5
+const friction = 0.03
 
 export default function SpaceShip() {
 
@@ -34,17 +35,32 @@ SpaceShip.prototype.shot = function() {
 };
 
 SpaceShip.prototype.accelerate = function(x,y) {
-  this.mov.X = this.mov.X + (x * dAcc)
-  this.mov.Y = this.mov.Y + (y * dAcc)
 
+  /**
+   * Calculating the vector P beetwen the ship and the mouse
+   **/
+
+  const PR = Math.sqrt(Math.pow(x - this.pos.X, 2) + Math.pow(y - this.pos.Y, 2))
+
+  const X = (x - this.pos.X) / PR
+  const Y = (y - this.pos.Y) / PR
+
+  /**
+   * Incrementing the speed
+   **/
+
+  this.mov.X = this.mov.X + (X * dAcc)
+  this.mov.Y = this.mov.Y + (Y * dAcc)
+
+
+  /**
+   * Making sure the module of the speed is not superior to the maximum speed
+   **/
   const R = Math.sqrt(Math.pow(this.mov.X, 2) + Math.pow(this.mov.Y, 2))
   if(R > limitAcc) {
     this.mov.X = (limitAcc * this.mov.X) / R
     this.mov.Y = (limitAcc * this.mov.Y) / R
   }
-
-  if(Math.abs(this.mov.X) > limitAcc) this.mov.X = this.mov.X / Math.abs(this.mov.X) * limitAcc
-  if(Math.abs(this.mov.Y) > limitAcc) this.mov.Y = this.mov.Y / Math.abs(this.mov.Y) * limitAcc
 };
 
 SpaceShip.prototype.set_pos = function(x,y) {
@@ -86,5 +102,12 @@ SpaceShip.prototype.update = function(drawer) {
   ctx.fillStyle = 'rgb(200,0,0)'
   ctx.fillRect(150 + (this.mov.X / limitAcc) * 100 , 150 + (this.mov.Y / limitAcc) * 100, 10, 10)
   */
+
+  /**
+   * Adding friction
+   **/
+
+  this.mov.X = this.mov.X + (-friction * this.mov.X)
+  this.mov.Y = this.mov.Y + (-friction * this.mov.Y)
   this.weapon.update(this.pos.X,this.pos.Y);
 };
