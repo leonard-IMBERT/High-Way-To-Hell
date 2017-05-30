@@ -5,7 +5,7 @@ import Images from './Images'
  * Take an HtmlElement of type canvas as parameter
  **/
 export default function Drawer(canvas, onload) {
-  if(canvas.tagName !== 'CANVAS') throw new Error("The giving div is Either not a canvas or not a element Html");
+  if(canvas.tagName !== 'CANVAS') throw new Error("The giving div is Either not a canvas or not an Html element");
   this.canvas = canvas
   this.ctx = canvas.getContext('2d')
   this.images = new Images()

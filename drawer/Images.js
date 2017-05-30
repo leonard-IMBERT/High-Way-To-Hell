@@ -13,14 +13,14 @@ export default function Images() {
 }
 
 Images.prototype.load = function(fn) {
-  this.images.SpaceShipSprite = new Image()
-  this.images.SpaceShipSprite.src = '/SpaceShip.png'
+  this.images = new Image()
+  this.images.src = '/Sprites.png'
   const that = this;
-  this.images.SpaceShipSprite.onload = () => {
+  this.images.onload = () => {
     that.sprites.SpaceShip = {
-      FORWARD: new GameImage(this.images.SpaceShipSprite, 0, 0, 32, 32),
-      LEFT: new GameImage(this.images.SpaceShipSprite, 32, 0, 32, 32),
-      RIGHT: new GameImage(this.images.SpaceShipSprite, 64, 0, 32, 32)
+      FORWARD: new GameImage(this.images, 0, 0, 32, 32),
+      LEFT: new GameImage(this.images, 32, 0, 32, 32),
+      RIGHT: new GameImage(this.images, 64, 0, 32, 32)
     }
     fn()
   }
