@@ -100,6 +100,11 @@ LevelManager.prototype.update_entities = function(user_input, entities, size) {
       const mouse = user_input.find(function(input) { return input.id === "Mouse"})
       e.accelerate(mouse.X, mouse.Y)
     })
+    if(user_input.find(function(input) { return input.id === "Space"})) entities.apply(index_spaceship, function(e) {
+      e.shot().forEach(function (proj) {
+        entities.add(proj)
+      })
+    })
   } else {
     this.status = Status.FAILED;
   }

@@ -1,5 +1,8 @@
 import Projectile from './Projectiles'
 
+
+const basicSpeed = 10
+
 export const Side = {
   ALLY: 0x00,
   ENNEMY: 0x01
@@ -29,7 +32,7 @@ export default function Weapon(shot, posX, posY, cooldown, side) {
  **/
 
 Weapon.prototype.update = function(posX, posY) {
-  if(this.currentCooldown > 0) this.curentCooldown --
+  if(this.currentCooldown > 0) this.currentCooldown -= 1
   this.pos.X = posX;
   this.pos.Y = posY;
 };
@@ -38,7 +41,9 @@ Weapon.prototype.fire = function() {
   if(this.currentCooldown <= 0) {
     this.currentCooldown = this.cooldown;
     return this.shot(this.side);
-  };
+  } else {
+    return [];
+  }
 };
 
 function BasicShot(side) {
@@ -53,9 +58,8 @@ function BasicShot(side) {
    *  damage
    * )
    **/
-  let movY;
-  if(side === Side.ALLY) movY = -1
-  else movY = 1
+  let movY = basicSpeed;
+  if(side === Side.ALLY) movY *= -1
   const projectile = new Projectile(
     this.pos.X,
     this.pos.Y,
@@ -72,9 +76,8 @@ function BasicShot(side) {
 
 function BigShot(side) {
 
-  let movY;
-  if(side === Side.ALLY) movY = -1
-  else movY = 1
+  let movY = basicSpeed;
+  if(side === Side.ALLY) movY *= -1
   const projectile = new Projectile(
     this.pos.X,
     this.pos.Y,
@@ -91,9 +94,8 @@ function BigShot(side) {
 
 function DoubleShot(side) {
 
-  let movY;
-  if(side === Side.ALLY) movY = -1
-  else movY = 1
+  let movY = basicSpeed;
+  if(side === Side.ALLY) movY *= -1
 
   const projectile1 = new Projectile(
     this.pos.X - 16,
@@ -122,9 +124,8 @@ function DoubleShot(side) {
 
 function TripleShot(side) {
 
-  let movY;
-  if(side === Side.ALLY) movY = -1
-  else movY = 1
+  let movY = basicSpeed;
+  if(side === Side.ALLY) movY *= -1
 
   const projectile1 = new Projectile(
     this.pos.X - 16,

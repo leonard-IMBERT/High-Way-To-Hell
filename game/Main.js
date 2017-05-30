@@ -37,11 +37,11 @@ body.addEventListener("mouseup", function(e) {
 })
 
 body.addEventListener("keydown", function(e) {
-  game.add_user_input(UserInput.KEYBOARD(e.key))
+  game.add_user_input(UserInput.KEYBOARD(e.code))
 });
 
 body.addEventListener("keyup", function(e) {
-  game.del_user_input(UserInput.KEYBOARD(e.key))
+  game.del_user_input(UserInput.KEYBOARD(e.code))
 });
 
 window.setInterval(() => {
