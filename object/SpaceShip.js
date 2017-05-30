@@ -1,10 +1,13 @@
 import { Weapons, Side } from './Weapons'
+import uuid from 'uuid/v4'
 
 const limitAcc = 6
 const dAcc = 0.5
 const friction = 0.03
 
 export default function SpaceShip() {
+
+  this.uuid = uuid();
 
   this.pos = {
     X: 0,
@@ -23,7 +26,9 @@ export default function SpaceShip() {
     Y: 32
   };
 
-  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y, Side.ALLY);
+  this.side = Side.ALLY;
+
+  this.weapon = Weapons.Basic(this.pos.X, this.pos.Y, this.side);
 };
 
 SpaceShip.prototype.is_hit = function(x, y) {
@@ -102,7 +107,7 @@ SpaceShip.prototype.update = function(drawer) {
   ctx.fillStyle = 'rgb(200,0,0)'
   ctx.fillRect(150 + (this.mov.X / limitAcc) * 100 , 150 + (this.mov.Y / limitAcc) * 100, 10, 10)
   */
-
+  
   /**
    * Adding friction
    **/

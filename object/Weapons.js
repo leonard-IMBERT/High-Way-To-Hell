@@ -63,7 +63,8 @@ function BasicShot(side) {
     8,
     0,
     movY,
-    1
+    1,
+    this.side
   )
 
   return [projectile];
@@ -81,7 +82,8 @@ function BigShot(side) {
     32,
     0,
     movY,
-    1
+    1,
+    this.side
   )
 
   return [projectile];
@@ -100,7 +102,8 @@ function DoubleShot(side) {
     8,
     0,
     movY,
-    1
+    1,
+    this.side
   )
 
   const projectile2 = new Projectile(
@@ -110,7 +113,8 @@ function DoubleShot(side) {
     8,
     0,
     movY,
-    1
+    1,
+    this.side
   )
 
   return [projectile1,projectile2];
@@ -129,7 +133,8 @@ function TripleShot(side) {
     8,
     -1,
     movY,
-    1
+    1,
+    this.side
   )
 
   const projectile2 = new Projectile(
@@ -139,7 +144,8 @@ function TripleShot(side) {
     8,
     1,
     movY,
-    1
+    1,
+    this.side
   )
 
   const projectile3 = new Projectile(
@@ -149,7 +155,8 @@ function TripleShot(side) {
     8,
     0,
     movY,
-    1
+    1,
+    this.side
   )
 
   return [projectile1,projectile2,projectile3];

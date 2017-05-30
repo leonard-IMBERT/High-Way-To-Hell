@@ -1,5 +1,5 @@
 import SpaceShip from '../object/SpaceShip'
-import LevelManager from './LevelManager'
+import LevelManager, { Status } from './LevelManager'
 import Loader from '../object/Loader'
 import Menu from '../object/Menu'
 import { level_1 } from '../blueprint/Level1'
@@ -59,7 +59,7 @@ EntitiesTable.prototype.search = function (f) {
 
 EntitiesTable.prototype.rm = function(f) {
   var obj = this.search(f)
-  if(obj) this.table.splice(obj, 1)
+  if(obj !== undefined) this.table.splice(obj, 1)
 };
 
 /**
@@ -153,14 +153,17 @@ Game.prototype.update = function() {
     case State.NOT_READY:
       this.state = State.MENU
       this.entities.clear()
-      this.entities.add(new Menu())
       break
 
     case State.MENU:
       const menu = this.entities.get(this.entities.search(function(e) {
         return e.constructor === Menu;
       }));
-      this.state = menu.process(this.user_inputs)
+      if(!menu) this.entities.add(new Menu())
+      else {
+        menu.update(this.drawer)
+        this.state = menu.process(this.user_inputs)
+      }
       break
 
     case State.LEVEL_1:
@@ -172,6 +175,7 @@ Game.prototype.update = function() {
         this.entities.add(new SpaceShip())
       };
       this.entities = this.level_manager.update_entities(this.user_inputs, this.entities, this.size);
+      if(this.level_manager.status === Status.FAILED) { this.state = State.NOT_READY }
       break
 
     case State.LEVEL_2:

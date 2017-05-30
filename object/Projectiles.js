@@ -1,4 +1,8 @@
-export default function Projectile(posX, posY, sizeX, sizeY, movX, movY, damage) {
+import uuid from 'uuid/v4'
+
+export default function Projectile(posX, posY, sizeX, sizeY, movX, movY, damage, side) {
+  this.uuid = uuid()
+
   this.pos = {
     X: posX,
     Y: posY
@@ -17,6 +21,8 @@ export default function Projectile(posX, posY, sizeX, sizeY, movX, movY, damage)
   this.damage = damage;
 
   this.sprite = undefined;
+
+  this.side = side;
 };
 
 Projectile.prototype.setSprite = function(byteArray) {
@@ -40,4 +46,12 @@ Projectile.prototype.accelerate = function(x,y) {
 Projectile.prototype.set_pos = function(x,y) {
   this.pos.X = x;
   this.pos.Y =y;
+};
+
+Projectile.prototype.is_hit = function(x, y) {
+  return false
+}
+
+Projectile.prototype.loose_health = function () {
+  return true
 };
